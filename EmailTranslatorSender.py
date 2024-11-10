@@ -76,6 +76,8 @@ body = input('Enter the body: ')
 #translator-----------------------------------
 
 translateIn = input('Would you like to translate the email into another language? (y/Y for Yes): ')
+while(translateIn not in ['y', 'Y', 'n', 'N']):
+    translateIn = input('Invalid input. Would you like to translate the email into another language? (y/Y for Yes, n/N for No): ')
 if (translateIn == 'y' or translateIn == 'Y'):
      langIn = input('What language would you like to translate to? (s for Spanish, r for Russian, f for French, c for Chinese, t for Tagalog): ')
      while(isLanguageValid(langIn) == False):
@@ -100,6 +102,7 @@ if (translateIn == 'y' or translateIn == 'Y'):
 #email sender---------------------------------
 
 try:
+    print("Sending email...")
     em = EmailMessage() #create instance of email
     em['From'] = email_sender
     em['To'] = email_receiver
